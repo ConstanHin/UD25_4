@@ -1,6 +1,9 @@
-package dto;
+package com.example.ud25_4_peliculas.dto;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -10,21 +13,23 @@ public class Pelicula {
 	
 	// Attributes
 	@Id
-	private int codigo;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long codigo;
+	@Column(name="nombre")
 	private String nombre;
 	
 	// Constructor
 	public Pelicula() {
 		
 	}
-	public Pelicula(int codigo, String nombre) {
+	public Pelicula(Long codigo, String nombre) {
 		this.codigo = codigo;
 		this.nombre = nombre;
 	}
-	public int getCodigo() {
+	public Long getCodigo() {
 		return codigo;
 	}
-	public void setCodigo(int codigo) {
+	public void setCodigo(Long codigo) {
 		this.codigo = codigo;
 	}
 	public String getNombre() {
@@ -33,6 +38,7 @@ public class Pelicula {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
+	
 	
 	
 

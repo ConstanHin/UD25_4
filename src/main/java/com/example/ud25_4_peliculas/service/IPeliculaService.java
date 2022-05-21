@@ -1,9 +1,8 @@
-package service;
+package com.example.ud25_4_peliculas.service;
 
 import java.util.List;
 
-
-import dto.Pelicula;
+import com.example.ud25_4_peliculas.dto.Pelicula;
 
 
 public interface IPeliculaService {

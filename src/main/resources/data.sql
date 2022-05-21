@@ -9,7 +9,7 @@ create table salas (
 	codigo int PRIMARY KEY,
 	nombre varchar(100),
 	pelicula_codigo int,
-	CONSTRAINT pelicula_fk FOREIGN KEY(pelicula_codigo) REFERENCES peliculas(codigo));
+	CONSTRAINT pelicula_fk FOREIGN KEY(pelicula_codigo) REFERENCES peliculas(codigo) ON DELETE CASCADE ON UPDATE CASCADE);
 
 insert into peliculas (codigo, nombre) values (1, 'Baterman');
 insert into peliculas (codigo, nombre) values (2, 'El transparente');

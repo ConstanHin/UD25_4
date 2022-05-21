@@ -1,12 +1,12 @@
-package service;
+package com.example.ud25_4_peliculas.service;
 
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import dao.IPeliculaDAO;
-import dto.Pelicula;
+import com.example.ud25_4_peliculas.dao.IPeliculaDAO;
+import com.example.ud25_4_peliculas.dto.Pelicula;
 
 @Service
 public class PeliculaSerivceImp implements IPeliculaService {
@@ -23,12 +23,12 @@ public class PeliculaSerivceImp implements IPeliculaService {
 	@Override
 	public Pelicula peliculaPorID(Long id) {
 
+		System.out.println("-*---------" + iPeliculaDAO.findById(id));
 		return iPeliculaDAO.findById(id).get();
 	}
 
 	@Override
 	public Pelicula addPelicula(Pelicula pelicula) {
-		
 		return iPeliculaDAO.save(pelicula);
 	}
 
