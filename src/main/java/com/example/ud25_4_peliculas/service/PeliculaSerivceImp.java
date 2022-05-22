@@ -23,12 +23,17 @@ public class PeliculaSerivceImp implements IPeliculaService {
 	@Override
 	public Pelicula peliculaPorID(Long id) {
 
-		System.out.println("-*---------" + iPeliculaDAO.findById(id));
 		return iPeliculaDAO.findById(id).get();
+	}
+	
+	@Override
+	public Pelicula peliculaPorCodigo(Long codigo) {
+		
+		return iPeliculaDAO.findByCodigo(codigo);
 	}
 
 	@Override
-	public Pelicula addPelicula(Pelicula pelicula) {
+	public Pelicula savePelicula(Pelicula pelicula) {
 		return iPeliculaDAO.save(pelicula);
 	}
 

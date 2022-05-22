@@ -22,40 +22,77 @@ public class Pelicula {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column(name="nombre")
 	private String nombre;
+	
+	@Column(name="calificacion_edad")
+	private Integer calificacion_edad;
+	
+	@Column(name="codigo")
+	private Integer codigo;
+	
     @OneToMany
     @JoinColumn(name="id")
     private List<Sala> sala;
 	
 	// Constructor
-	public Pelicula() {
-		
+	public Pelicula() {	
 	}
-	public Pelicula(Long codigo, String nombre) {
+	
+	public Pelicula(Long id,Long codigo, String nombre) {
 		this.id = codigo;
 		this.nombre = nombre;
 	}
-	public Long getCodigo() {
-		return id;
-	}
-	public void setCodigo(Long codigo) {
-		this.id = codigo;
-	}
+
+	
 	public String getNombre() {
 		return nombre;
 	}
+	
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	@JsonIgnore
-	@OneToMany(fetch = FetchType.LAZY, mappedBy = "sala")
-	public List<Sala> getSalas() {
-		return sala;
+
+	public Integer getCalificacion_edad() {
+		return calificacion_edad;
 	}
-	public void setSalas(List<Sala> sala) {
+
+	public void setCalificacion_edad(Integer calificacion_edad) {
+		this.calificacion_edad = calificacion_edad;
+	}
+
+	public Integer getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(Integer codigo) {
+		this.codigo = codigo;
+	}
+
+	public void setSala(List<Sala> sala) {
 		this.sala = sala;
 	}
+	
+	@JsonIgnore
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "Sala")
+	public List<Sala> getSala() {
+		return sala;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+	
+
+
+
+	
+	
 	
 	
 	

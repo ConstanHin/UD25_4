@@ -3,6 +3,7 @@ package com.example.ud25_4_peliculas.dto;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -16,11 +17,15 @@ public class Sala {
 	
 	// Attributes
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)//busca ultimo valor e incrementa desde id final de db
-	@Column
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
+	
 	@Column(name="nombre")
 	private String nombre;
+	
+//	@Column(name="pelicula_id")
+//	private String pelicula_id;
+	
 	@ManyToOne
 	@JoinColumn(name = "pelicula_id")
 	private Pelicula pelicula;
@@ -53,8 +58,7 @@ public class Sala {
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
 	}
-	@ManyToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "id")
+
 	public Pelicula getPelicula() {
 		return pelicula;
 	}

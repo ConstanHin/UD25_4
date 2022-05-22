@@ -13,12 +13,14 @@ public interface IPeliculaService {
 	// Get by nombre
 	public List<Pelicula> listarPorNombre(String nombre);
 	
-	// Get by codigo
+	// Get by id
 	public Pelicula peliculaPorID(Long id);
 	
+	// Get by codigo
+	public Pelicula peliculaPorCodigo(Long codigo);
 	
 	// Add
-	public Pelicula addPelicula(Pelicula pelicula);
+	public Pelicula savePelicula(Pelicula pelicula);
 	
 	// Update
 	public Pelicula updatePelicula(Pelicula pelicula);

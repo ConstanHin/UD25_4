@@ -27,9 +27,14 @@ public class PeliculaController {
 		return peliculaSerivceImp.listarPeliculas();
 	}
 
+	// Get pelicula by id
+	@GetMapping("/peliculas/{id}")
+	public Pelicula getByID(@PathVariable(name = "id") Long id) {
+		return peliculaSerivceImp.peliculaPorID(id);
+	}
 	// Get pelicula by codigo
 	@GetMapping("/peliculas/codigo/{codigo}")
-	public Pelicula getByID(@PathVariable(name = "codigo") Long codigo ) {
+	public Pelicula getByCodigo(@PathVariable(name = "codigo") Long codigo ) {
 		return peliculaSerivceImp.peliculaPorID(codigo);
 	}
 	
@@ -42,7 +47,7 @@ public class PeliculaController {
 	// Add Pelicula
 	@PostMapping("/peliculas")
 	public Pelicula addPelicula(@RequestBody Pelicula pelicula) {
-		return peliculaSerivceImp.addPelicula(pelicula);
+		return peliculaSerivceImp.savePelicula(pelicula);
 	}
 	
 	// Update pelicula
