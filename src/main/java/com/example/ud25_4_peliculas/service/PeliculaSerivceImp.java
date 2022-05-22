@@ -19,12 +19,6 @@ public class PeliculaSerivceImp implements IPeliculaService {
 		
 		return iPeliculaDAO.findAll();
 	}
-
-	@Override
-	public Pelicula peliculaPorID(Long id) {
-
-		return iPeliculaDAO.findById(id).get();
-	}
 	
 	@Override
 	public Pelicula peliculaPorCodigo(Long codigo) {

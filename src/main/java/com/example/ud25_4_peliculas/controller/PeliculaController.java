@@ -26,16 +26,11 @@ public class PeliculaController {
 	public List<Pelicula> listarPeliculas() {
 		return peliculaSerivceImp.listarPeliculas();
 	}
-
-	// Get pelicula by id
-	@GetMapping("/peliculas/{id}")
-	public Pelicula getByID(@PathVariable(name = "id") Long id) {
-		return peliculaSerivceImp.peliculaPorID(id);
-	}
-	// Get pelicula by codigo
-	@GetMapping("/peliculas/codigo/{codigo}")
-	public Pelicula getByCodigo(@PathVariable(name = "codigo") Long codigo ) {
-		return peliculaSerivceImp.peliculaPorID(codigo);
+	
+	// Get peliculas by codigo
+	@GetMapping("/peliculas/{codigo}")
+	public Pelicula listarPorNombre(@PathVariable(name = "codigo") Long codigo) {
+		return peliculaSerivceImp.peliculaPorCodigo(codigo);
 	}
 	
 	// Get peliculas by nombre
@@ -51,24 +46,25 @@ public class PeliculaController {
 	}
 	
 	// Update pelicula
-	@PutMapping("/peliculas/{id}")
-	public Pelicula updatePelicula(@PathVariable(name ="id")Long id ,@RequestBody Pelicula pelicula) {
+	@PutMapping("/peliculas/{codigo}")
+	public Pelicula updatePelicula(@PathVariable(name ="codigo")Long codigo ,@RequestBody Pelicula pelicula) {
 		
 		Pelicula pelicula_seleccionada = new Pelicula();
 		Pelicula pelicula_actualizada = new Pelicula();
 		
-		pelicula_seleccionada = peliculaSerivceImp.peliculaPorID(id);
+		pelicula_seleccionada = peliculaSerivceImp.peliculaPorCodigo(codigo);
 		
 		pelicula_seleccionada.setNombre(pelicula.getNombre());
+		pelicula_seleccionada.setCalificacion_edad(pelicula.getCalificacion_edad());
 		
 		pelicula_actualizada = peliculaSerivceImp.updatePelicula(pelicula_seleccionada); 
 		return pelicula_actualizada;
 	}
 	
 	//Delete pelicula
-	@DeleteMapping("/peliculas/{id}")
-	public void deletePelicula(@PathVariable(name ="id")Long id) {
-		peliculaSerivceImp.deletePelicula(id);
+	@DeleteMapping("/peliculas/{codigo}")
+	public void deletePelicula(@PathVariable(name ="codigo")Long codigo) {
+		peliculaSerivceImp.deletePelicula(codigo);
 	}
 
 }

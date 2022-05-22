@@ -13,9 +13,6 @@ public interface IPeliculaService {
 	// Get by nombre
 	public List<Pelicula> listarPorNombre(String nombre);
 	
-	// Get by id
-	public Pelicula peliculaPorID(Long id);
-	
 	// Get by codigo
 	public Pelicula peliculaPorCodigo(Long codigo);
 	

@@ -9,11 +9,11 @@ public interface ISalaService {
 	// Listar peliculas
 	public List<Sala> listarSalas();
 
+	// Get by codigo
+	public Sala getByCodigo(Long codigo);
+	
 	// Get by nombre
 	public List<Sala> listarPorNombre(String nombre);
-
-	// Get by codigo
-	public Sala salaPorID(Long id);
 
 	// Add
 	public Sala addSala(Sala sala);

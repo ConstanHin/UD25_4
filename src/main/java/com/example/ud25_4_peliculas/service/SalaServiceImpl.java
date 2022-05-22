@@ -13,6 +13,13 @@ public class SalaServiceImpl implements ISalaService {
 
 	@Autowired
 	ISalaDAO iSalaDAO;
+	
+	
+	// Get by codigo
+	@Override
+	public Sala getByCodigo(Long codigo) {
+		return iSalaDAO.findById(codigo).get();
+	}
 
 	@Override
 	public List<Sala> listarSalas() {
@@ -22,11 +29,6 @@ public class SalaServiceImpl implements ISalaService {
 	@Override
 	public List<Sala> listarPorNombre(String nombre) {
 		return iSalaDAO.findByNombre(nombre);
-	}
-
-	@Override
-	public Sala salaPorID(Long id) {
-		return iSalaDAO.findById(id).get();
 	}
 
 	@Override
@@ -43,5 +45,6 @@ public class SalaServiceImpl implements ISalaService {
 	public void deleteSala(Long id) {
 		iSalaDAO.deleteById(id);
 	}
+
 
 }
