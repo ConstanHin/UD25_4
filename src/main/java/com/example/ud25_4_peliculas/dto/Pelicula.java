@@ -30,7 +30,7 @@ public class Pelicula {
 	private Integer calificacion_edad;
 	
     @OneToMany
-    @JoinColumn(name="codigo")
+    @JoinColumn(name="pelicula_id")
     private List<Sala> sala;
 	
 	// Constructor

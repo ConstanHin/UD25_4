@@ -48,15 +48,15 @@ public class SalaController {
 	}
 
 	// Update Sala
-	@PutMapping("/salas/{codigo}")
-	public Sala updatePelicula(@PathVariable(name = "codigo") Long codigo, @RequestBody Sala sala) {
+	@PutMapping("/salas/{id}")
+	public Sala updatePelicula(@PathVariable(name = "id") Long id, @RequestBody Sala sala) {
 
 		Sala sala_seleccionada = new Sala();
 		Sala sala_actualizada = new Sala();
 
-		sala_seleccionada = salaServiceImpl.getByCodigo(codigo);
+		sala_seleccionada = salaServiceImpl.getByCodigo(id);
 
-		sala_seleccionada.setCodigo(sala.getCodigo());
+		sala_seleccionada.setId(sala.getId());
 		sala_seleccionada.setNombre(sala.getNombre());
 		sala_seleccionada.setPelicula(sala.getPelicula());
 

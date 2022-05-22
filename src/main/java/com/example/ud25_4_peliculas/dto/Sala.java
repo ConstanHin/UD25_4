@@ -16,9 +16,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Sala {
 	
 	// Attributes
-	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigo;
+	@Id
+	private Long id;
 	
 	@Column(name="nombre")
 	private String nombre;
@@ -33,26 +33,29 @@ public class Sala {
 	}
 
 
-	public Sala(Long codigo, String nombre, Pelicula pelicula) {
-		this.codigo = codigo;
+	public Sala(Long id, String nombre, Pelicula pelicula) {
+		this.id = id;
 		this.nombre = nombre;
 		this.pelicula = pelicula;
 	}
 
 
+
+
+
 	/**
-	 * @return the codigo
+	 * @return the id
 	 */
-	public Long getCodigo() {
-		return codigo;
+	public Long getId() {
+		return id;
 	}
 
 
 	/**
-	 * @param codigo the codigo to set
+	 * @param id the id to set
 	 */
-	public void setCodigo(Long codigo) {
-		this.codigo = codigo;
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 
